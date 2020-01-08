@@ -7,7 +7,7 @@ Your task is to write a client and server that talk to each other over a socket 
 All of the clients and servers should be interchangeable, despite being written by different groups in different languages. We will acheive that by ensuring that they all follow the same *protocol!*
 
 ## Client Protocol
-A `helloX` client is a program written in the language X that can connect to a `hellosrv` server (potentially written in a different language). When the client connects, it should send the string `Hello in X` to the server and then attempt to read in a reply. The server's response should be printed to screen and the client should exit.
+A `helloX` client is a program written in the language X that can connect to a `hellosrv` server (potentially written in a different language). When the client connects, it should send the string `Hello in X` followed by a new line ('\n') to the server and then attempt to read in a reply. The server's response will be at most 256 bytes, and should be printed to screen before the client exits.
 
 The client should take the server's hostname/IP and port as command line arguments:
 ```
@@ -15,12 +15,15 @@ The client should take the server's hostname/IP and port as command line argumen
 ./helloC
 Sending "Hello in C"
 Received: "Goodbye in Python"
-
 ```
+
 ## Server Protocol
 A `hellosrvX` server is a program written in the language X that accepts incoming client requests. For each client that connects it should try to read a message, print that message to the screen, and then send the string "Goodbye in X". It should then close the client connection and get ready to accept a new client.
 
 *Challenge mode:* Instead of always responding with "Goodbye in X", make the message vary based on the client's language: "Goodbye Y from X" where Y is the client's language and X is the server's language.
+
+## Code and Documentation
+You should write your code in a directory named after the language you are using. You must include a `README.md` file that contains a description of how to use the important socket functions of the language you are using. The file should also explain how to build and run your client/server. Include any special installation steps needed for your language of choice.
 
 ## Getting Started
 Once your group has picked a language and ensured there are no duplicates, follow these instructions:
